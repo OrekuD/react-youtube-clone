@@ -17,21 +17,9 @@
   }
 }
 
-.card-wide {
-  width: 200px;
-  height: 200px;
+.wide {
+  width: 90%;
+  height: 140px;
   background-color: red;
-  margin: 15px;
-
-  @media (max-width: 1024px) {
-    flex-basis: 22%;
-  }
-
-  @media (max-width: 768px) {
-    flex-basis: 40%;
-  }
-
-  @media (max-width: 500px) {
-    flex-basis: 80%;
-  }
+  margin-bottom: 10px;
 }
