@@ -7,7 +7,7 @@ const Header = ({ value, setValue }) => {
     <div className={styles.container}>
       <h5 className={styles.logoText}> YouTube </h5>
       <div className={styles.searchbar}>
-        <input />
+        <input placeholder="Search" />
         <button>
           <Search color="grey" size="15px" />
         </button>
