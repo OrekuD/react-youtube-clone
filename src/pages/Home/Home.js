@@ -1,50 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styles from "./Home.module.scss";
-import { Card } from "../../components";
-import Api from "../../api/Api";
-
-const cards = [
-  { id: Math.random().toString() },
-  { id: Math.random().toString() },
-  { id: Math.random().toString() },
-  { id: Math.random().toString() },
-  { id: Math.random().toString() },
-  { id: Math.random().toString() },
-  { id: Math.random().toString() },
-  { id: Math.random().toString() },
-  { id: Math.random().toString() },
-  { id: Math.random().toString() },
-];
-
-const API_KEY = "AIzaSyA10hbFRbqZtmMM8pXQrewK_pJnEyL4EqU";
+import { Card, LoadingScreen } from "../../components";
+import { Context } from "../../context/context";
 
 const Home = () => {
-  useEffect(() => {
-    const loadVideos = async (search) => {
-      const response = await Api.get("search", {
-        params: {
-          part: "snippet",
-          maxResults: 10,
-          key: API_KEY,
-          q: search,
-        },
-      });
-      return response;
-    };
+  const { videos } = useContext(Context);
 
-    console.log(loadVideos("dogs"));
+  useEffect(() => {}, []);
 
-    // fetch(
-    //   `/search?key=${process.env.API_KEY}&q=${searchTerm}&part=snippet&maxResults=10`
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
-  });
-
+  if (!videos) {
+    return (
+      <div className={styles.container}>
+        <LoadingScreen />
+      </div>
+    );
+  }
   return (
     <div className={styles.container}>
-      {cards.map((card) => (
-        <Card />
+      {videos.map((video, i) => (
+        <Card video={video} key={i} />
       ))}
     </div>
   );
