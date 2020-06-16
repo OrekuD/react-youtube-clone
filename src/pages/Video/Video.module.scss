@@ -2,16 +2,36 @@
   display: flex;
   padding: 15px;
 
+  @media (max-width: 770px) {
+    flex-direction: column;
+  }
+
   .left {
     flex-basis: 65%;
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    p {
+      width: 90%;
+      margin: 10px;
+    }
+
+    @media (max-width: 770px) {
+      flex-basis: 100%;
+    }
+
     .video {
       width: 98%;
       height: 70vh;
-      background-color: blue;
+
+      @media (max-width: 770px) {
+        height: 40vh;
+      }
+
+      @media (max-width: 500px) {
+        height: 30vh;
+      }
     }
   }
   .right {
@@ -19,5 +39,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: 770px) {
+      flex-basis: 100%;
+      margin-top: 50px;
+    }
   }
 }

@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {}, []);
 
-  if (!videos) {
+  if (!videos.length) {
     return (
       <div className={styles.container}>
         <LoadingScreen />
