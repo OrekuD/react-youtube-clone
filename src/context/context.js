@@ -5,10 +5,12 @@ const Context = createContext();
 
 const Provider = ({ children }) => {
   const [videos, setVideos] = useState([]);
+  const [search, setSearch] = useState("funny");
+  const [video, setVideo] = useState({});
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [search, video]);
 
   const fetchData = async () => {
     const response = await Api.get("search", {
@@ -16,17 +18,18 @@ const Provider = ({ children }) => {
         part: "snippet",
         maxResults: 12,
         key: process.env.REACT_APP_API_KEY,
-        q: "dogs",
+        q: search,
       },
     });
 
     if (response.data) {
       setVideos(response.data.items);
+      setVideo(response.data.items[0]);
     }
   };
 
   return (
-    <Context.Provider value={{ videos, setVideos }}>
+    <Context.Provider value={{ videos, setVideos, setSearch, video, setVideo }}>
       {children}
     </Context.Provider>
   );

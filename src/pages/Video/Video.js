@@ -4,14 +4,14 @@ import styles from "./Video.module.scss";
 import { CardWide, LoadingScreen } from "../../components";
 import { Context } from "../../context/context";
 
-const Video = ({ location }) => {
-  const { videos } = useContext(Context);
+const Video = () => {
+  const { videos, video: currentVideo } = useContext(Context);
   const [video, setVideo] = useState(" ");
 
   useEffect(() => {
-    const params = queryString.parse(location.search);
-    setVideo(`https://www.youtube.com/embed/${params.v}`);
-  }, [location.search]);
+    console.log(currentVideo.id.videoId);
+    setVideo(`https://www.youtube.com/embed/${currentVideo.id.videoId}`);
+  }, [currentVideo]);
 
   return (
     <div className={styles.container}>
