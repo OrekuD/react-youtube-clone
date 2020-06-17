@@ -10,7 +10,7 @@ const Provider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
-  }, [search, video]);
+  }, [search]);
 
   const fetchData = async () => {
     const response = await Api.get("search", {
@@ -24,7 +24,6 @@ const Provider = ({ children }) => {
 
     if (response.data) {
       setVideos(response.data.items);
-      setVideo(response.data.items[0]);
     }
   };
 

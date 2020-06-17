@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import styles from "./Home.module.scss";
 import { Card, LoadingScreen } from "../../components";
 import { Context } from "../../context/context";
