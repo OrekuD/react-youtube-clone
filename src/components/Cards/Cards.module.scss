@@ -1,7 +1,7 @@
 .card {
   flex-basis: 22%;
   height: 280px;
-  margin: 15px;
+  margin: 15px 0;
   align-items: center;
   font-size: 14px;
 
@@ -10,7 +10,7 @@
   }
 
   div {
-    height: 150px;
+    height: 170px;
     width: 100%;
   }
 
@@ -28,10 +28,11 @@
 
   @media (max-width: 768px) {
     flex-basis: 40%;
+    margin: 10px 0px;
   }
 
   @media (max-width: 500px) {
-    flex-basis: 80%;
+    flex-basis: 100%;
   }
 }
 

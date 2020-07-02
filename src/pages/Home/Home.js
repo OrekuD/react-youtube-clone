@@ -1,12 +1,10 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import styles from "./Home.module.scss";
 import { Card, LoadingScreen } from "../../components";
 import { Context } from "../../context/context";
 
 const Home = () => {
   const { videos } = useContext(Context);
-
-  useEffect(() => {}, []);
 
   if (!videos.length) {
     return (
